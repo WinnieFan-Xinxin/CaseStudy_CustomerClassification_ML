@@ -1,0 +1,103 @@
+Context:
+
+Clients arriving on the platform fill a task creation form describing tasks to be done. 
+Then XXX website displays an ordered list of available Taskers, represented by tasker_id.
+For this exercise, a sample data file is provided which contains
+information about their task search ( funnel_search_id) .  A "funnel_search_id" is the group
+of Taskers from which the Client can choose one to book based on that specific search. 
+
+The sample data file is a CSV file of the form:
+
+
+funnel_search_id                        timestamp            tasker_id   position  hourly_rate  num_completed_tasks   hired   category
+0-0-70cf97d7-37af-4834-901c-ce3ad4893b8c   2017-09-01 00:32:25  1009185352   1        38           151                   0       Furniture Assembly
+0-0-70cf97d7-37af-4834-901c-ce3ad4893b8c   2017-09-01 00:32:25  1006892359   2        40           193                   0       Furniture Assembly
+0-0-70cf97d7-37af-4834-901c-ce3ad4893b8c   2017-09-01 00:32:25  1012023956   3        28             0                   0       Furniture Assembly
+0-0-70cf97d7-37af-4834-901c-ce3ad4893b8c   2017-09-01 00:32:25  1009733517   4        43           303                   0       Furniture Assembly
+0-0-70cf97d7-37af-4834-901c-ce3ad4893b8c   2017-09-01 00:32:25  1013579273   5        29            39                   0       Furniture Assembly
+0-0-70cf97d7-37af-4834-901c-ce3ad4893b8c   2017-09-01 00:32:25  1012043028   6        28             2                   0       Furniture Assembly
+0-0-70cf97d7-37af-4834-901c-ce3ad4893b8c   2017-09-01 00:32:25  1013470741   7        29             9                   0       Furniture Assembly
+0-0-70cf97d7-37af-4834-901c-ce3ad4893b8c   2017-09-01 00:32:25  1009557645   8        29             8                   0       Furniture Assembly
+0-0-70cf97d7-37af-4834-901c-ce3ad4893b8c   2017-09-01 00:32:25  1010800768   9        28             0                   0       Furniture Assembly
+0-0-70cf97d7-37af-4834-901c-ce3ad4893b8c   2017-09-01 00:32:25  1009072269  10        35            59                   0       Furniture Assembly
+0-0-70cf97d7-37af-4834-901c-ce3ad4893b8c   2017-09-01 00:32:25  1008733253  11        40            68                   0       Furniture Assembly
+0-0-70cf97d7-37af-4834-901c-ce3ad4893b8c   2017-09-01 00:32:25  1009198916  12        27            17                   0       Furniture Assembly
+0-0-70cf97d7-37af-4834-901c-ce3ad4893b8c   2017-09-01 00:32:25  1009856900  13        50           914                   1       Furniture Assembly
+0-0-70cf97d7-37af-4834-901c-ce3ad4893b8c   2017-09-01 00:32:25  1012314913  14        29             5                   0       Furniture Assembly
+0-0-70cf97d7-37af-4834-901c-ce3ad4893b8c   2017-09-01 00:32:25  1013307670  15        25             0                   0       Furniture Assembly
+
+The columns are as follows:
+ funnel_search_id     unique identifier for this recommendation, or set of tasker search
+ timestamp            time of the search 
+ tasker_id            unique identifier for the Tasker that are displayed as a result of the search
+ position             the position of the Tasker in the recommendation set, 1 - first, 2 - second, etc.
+ hourly_rate          the hourly rate for the Tasker when they were shown
+ num_completed_tasks  the number of Tasks the Tasker had completed in that category, when they were shown
+ hired                was the Tasker hired or not?  Only 1 tasker out of a set of recommendations can be hired
+ category             the category of work the Client needs help with
+
+
+
+Please answer the two questions below. 
+
+Question 1: Using the data, what factors impact clients choosing/selecting a tasker in the result page ? Feel free to build a predictive model to determine the factors that impact what tasker is being selected.
+
+
+Question 2: Modeling Retention:
+
+XXX company is very focused on increasing customer retention. More specifically, we want customers to repeat with XXX, booking more than once or more. Assuming that you have access to all the data you need; how would you approach customer retention with Analytics or Data Science? Another words, How would you set up your training data to model retention ? What types of features would you use in your approach? 
+
+
+Question 3: 12 Month retention
+
+Independent of question 2 above, lets say that XXX is interested in the long term ( > 12months) customer retention . Let's say that we made a chance to our product adding new features and functionalities. We expect those new changes to increase customer retention, specifically in this case, 12month retention. How can we test if the change is successful?
+
+
+For question 2 and 3, please outline your approach in a few paragraph. Feel free to create slides if that's what you prefer ( slides are not required. A few paragraph would be enough).
+
+2. 
+For XXX, whether customers would repeat with us is passive and we don't get informed that a customer is leaving. 
+I think, the customer retention needs to be deduced by customer activity within a certain period of time.
+We could draw a frequency distribution chart reporting purchase activity within different time intervals, in order to find the elbow point 
+(such as 75% of active customers repeat purchasing products within 2 weeks).
+Based on the analysis above, the dependent variable would be, for example, whether the existing customer would purchase our products again within 2 weeks.
+
+Then we will create predictive models (classification models such as logistic regression, Support Vector Machines, Random Forest, KNN, GradientBoosting) to determine the factors that influence customer retention.
+And the specific steps would be similar with what I did in Question 1.
+The features that I would use would be as follows:
+1) Features regarding 'Customer Information':
+Zip Code
+Income Range
+Gender
+Occupation
+Education
+Do they have kids in the household?
+How do they find your website/ product?
+
+2) Features regarding 'Products':
+Type of Service
+Variety of Products
+Product Preferences or Combos
+
+3) Features regarding 'Purchase History':
+Frequency of Purchase
+Date of Last Purchase
+Time of Day/Season of Purchase
+Value of Purchases
+Payment Methods
+
+4) Features regarding 'Customer Interactions'
+Service Questions
+Online Visits
+Complaint Resolutions
+Complaint Priority
+How do they complain — email or phone or twitter?
+Frequency of complaints
+
+3. A/B test
+For example, you might offer a particular feature to randomly selected customers and not others, and then make comparisons; 
+alternatively, you might add a feature to one product offering and compare its repeat sales to those of similar products where you haven’t offered the feature. 
+Such comparisons allow you to estimate changes in both revenues and costs associated with adding a feature, which will enable you to estimate the the return on investment (ROI).
+
+
+
